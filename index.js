@@ -14,5 +14,10 @@ app.get('/', (req,res) => {
 
 io.on('connection', (socket) => { 
     socket.join("room1") 
-    io.sockets.in('room1').emit('room1Chat', 'we are chatting in room1')
+    ///==>Let's find out the connected members of room<===///
+    const members = io.sockets.adapter.rooms.get('room1').size;
+
+    io.sockets.in('room1').emit('room1Chat', `we are chatting in room1 and total members = ${members}`) 
+    
+    
 })

@@ -9,7 +9,7 @@
 
 <body>
     <center>
-        <h1>I am home route</h1>
+        <h1 id="msg"></h1>
     </center>
 
 
@@ -18,7 +18,7 @@
     <script>
         const socket = io();
         socket.on('room1Chat', (data) => {
-            alert(data);
+            document.getElementById('msg').innerHTML = data;
         })
     </script>
 </body>
